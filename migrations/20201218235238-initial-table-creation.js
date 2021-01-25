@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -22,7 +21,6 @@ module.exports = {
     })
   },
 
-
   down: async (queryInterface, Sequelize) => {
     /**
      * Add reverting commands here.
@@ -31,5 +29,5 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
     await queryInterface.dropTable('coffees')
-  }
+  },
 }

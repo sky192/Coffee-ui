@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 
-
 module.exports = {
   up: async (queryInterface) => {
     /**
@@ -55,18 +54,19 @@ module.exports = {
         title: 'Macchiato',
         description: 'The macchiato is another espresso-based drink that has a small amount of foam on top. It’s the happy medium between a cappuccino and a doppio.',
 
-      }
+      },
 
     ])
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, Sequelize) =>
     /**
      * Add reverting commands here.
      *
      * Example:
      * await queryInterface.dropTable('users');
      */
-    return queryInterface.bulkDelete('coffees')
-  }
+    // eslint-disable-next-line implicit-arrow-linebreak
+    queryInterface.bulkDelete('coffees'),
+
 }

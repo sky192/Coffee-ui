@@ -2,8 +2,6 @@
 
 const models = require('../models')
 
-
-
 const getAllCoffees = async (request, response) => {
   const coffees = await models.Coffees.findAll({})
 
@@ -15,7 +13,7 @@ const getCoffeeByTitle = async (request, response) => {
     const { title } = request.params
 
     const foundCoffee = await models.Coffees.findOne({
-      where: { title: { [models.Op.like]: `%${title}%` }, }
+      where: { title: { [models.Op.like]: `%${title}%` } },
 
     })
 
@@ -27,7 +25,6 @@ const getCoffeeByTitle = async (request, response) => {
   }
 }
 
-
 const saveNewCoffee = async (request, response) => {
   const { title, description } = request.body
 
@@ -37,18 +34,16 @@ const saveNewCoffee = async (request, response) => {
 
   const newCoffee = await models.Coffees.create({ title, description })
 
-
   return response.status(201).send(newCoffee)
 }
 
-
 const deleteCoffee = async (request, response) => {
   try {
+    // eslint-disable-next-line radix
     const id = parseInt(request.params.id)
     const coffee = await models.Coffee.findOne({ where: { id } })
 
     if (!coffee) return response.status(404).send(`Unknown animal with ID: ${id}`)
-
 
     await models.Coffees.destroy({ where: { id } })
 
