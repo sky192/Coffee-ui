@@ -1,0 +1,32 @@
+html
+  include partials/head.pug
+  head
+  body
+    div
+         h1 Coffee API
+         table
+            tr
+              th Method
+              th Route
+              th Purpose
+            tr
+              td(class='capital') Get
+              td /coffee
+              td Returns a list of all coffees in the database
+            tr
+              td(class='capital') Get
+              td /coffee/:title
+              td Returns JSON of coffee by title
+            //tr
+              td(class='capital') Get
+              td /coffee/ingredients
+              td Returns JSON of coffee by ingredients
+            tr
+              td(class='capital') Post
+              td /coffee
+              td Saves a new coffee to the database
+            tr
+              td(class='capital') Delete
+              td /coffee/:id
+              td Deletes the coffee from the database
+            
