@@ -1,4 +1,4 @@
-const Coffees = (connection, Sequelize) => connection.define('coffees', {
+export default (connection, Sequelize) => connection.define('coffees', {
   id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
   title: { type: Sequelize.STRING, unique: true },
   description: { type: Sequelize.STRING },
@@ -7,5 +7,3 @@ const Coffees = (connection, Sequelize) => connection.define('coffees', {
     attributes: { exclude: ['deletedAt'] },
   },
 }, { paranoid: true })
-
-module.exports = Coffees

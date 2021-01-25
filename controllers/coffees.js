@@ -1,14 +1,19 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-undef */
 
-const models = require('../models')
+import models from '../models'
 
-const getAllCoffees = async (request, response) => {
-  const coffees = await models.Coffees.findAll({})
+export const getAllCoffees = async (request, response) => {
+  try {
+    const coffees = await models.Coffees.findAll({})
 
-  return response.send(coffees)
+    return response.send(coffees)
+  } catch (error) {
+    return response.status(500).send('Unable to retrieve coffees, please try again')
+  }
 }
 
-const getCoffeeByTitle = async (request, response) => {
+export const getCoffeeByTitle = async (request, response) => {
   try {
     const { title } = request.params
 
@@ -25,7 +30,7 @@ const getCoffeeByTitle = async (request, response) => {
   }
 }
 
-const saveNewCoffee = async (request, response) => {
+export const saveNewCoffee = async (request, response) => {
   const { title, description } = request.body
 
   if (!title || !description) {
@@ -37,7 +42,7 @@ const saveNewCoffee = async (request, response) => {
   return response.status(201).send(newCoffee)
 }
 
-const deleteCoffee = async (request, response) => {
+export const deleteCoffee = async (request, response) => {
   try {
     // eslint-disable-next-line radix
     const id = parseInt(request.params.id)
@@ -52,5 +57,3 @@ const deleteCoffee = async (request, response) => {
     return response.status(500).send('Unknown error while deleting coffee')
   }
 }
-
-module.exports = { getAllCoffees, getCoffeeByTitle, saveNewCoffee, deleteCoffee }

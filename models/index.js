@@ -1,7 +1,8 @@
-const Sequelize = require('sequelize')
-// eslint-disable-next-line import/no-unresolved
-const allConfigs = require('../config/sequelize')
-const coffeeModel = require('./coffee')
+import Sequelize from 'sequelize'
+
+import allConfigs from '../configs/sequelize'
+
+import coffeeModel from './coffee'
 
 const environment = process.env.NODE_ENV || 'development'
 const config = allConfigs[environment]
@@ -12,4 +13,4 @@ const connection = new Sequelize(config.database, config.username, config.passwo
 
 const Coffees = coffeeModel(connection, Sequelize)
 
-module.exports = { Coffees, Op: Sequelize.Op }
+export default { Coffees, Op: Sequelize.Op }
