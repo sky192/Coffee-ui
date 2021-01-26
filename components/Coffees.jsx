@@ -1,22 +1,29 @@
-/* eslint-disable max-len */
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Search from './Search'
 import Coffee from './Coffee'
+import Search from './Search'
+import { filterCoffees, retrieveCoffees } from '../utils/coffees'
 
 export default () => {
   const [coffeeList, setCoffeeList] = useState([])
+  const [filteredCoffeeList, setFilteredCoffeeList] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     async function pullData() {
-      const { data } = await axios.get('http://http://localhost:1337/api/coffee')
+      const coffees = await retrieveCoffees()
 
-      setCoffeeList(data)
+      setCoffeeList(coffees)
+      setFilteredCoffeeList(coffees)
     }
 
     pullData()
   }, [])
+
+  useEffect(() => {
+    const filtered = filterCoffees(coffeeList, searchTerm)
+
+    setFilteredCoffeeList(filtered)
+  }, [searchTerm])
 
   return (
     <div className="page">
@@ -25,7 +32,14 @@ export default () => {
       <Search term={searchTerm} setter={setSearchTerm} />
       {
 
-        coffeeList.map(coffee => (<Coffee key={coffee.id} id={coffee.id} title={coffee.title} description={coffee.description} />))
+        filteredCoffeeList.map(coffee => (
+          <Coffee
+            key={coffee.id}
+            id={coffee.id}
+            title={coffee.title}
+            description={coffee.description}
+          />
+        ))
       }
 
     </div>
