@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Coffee from './components/Coffees'
+import Coffees from './components/Coffees'
 
-render(<Coffee />,
+render(<Coffees />,
   document.getElementById('root'))
