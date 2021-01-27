@@ -1,6 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Page = styled.div `
+background-color: #c7ab81;
+    margin: 60px auto 0;
+    text-align: center;
+    width: 60%;
+    `
 
 export default ({ children }) => (
-  <div className="page">{children}</div>
-
+  <Page>{children}</Page>
 )
