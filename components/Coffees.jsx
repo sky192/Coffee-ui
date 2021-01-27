@@ -27,8 +27,8 @@ export default () => {
 
   return (
     <div className="page">
-      <div className="title">Choose the Coffees</div>
-      <div className="subtitle">A searchable list of all your favorite coffees</div>
+      <div className="title">A searchable list of all your favorite coffees</div>
+      <div className="subtitle">choose the coffee</div>
       <Search term={searchTerm} setter={setSearchTerm} />
       {
 
