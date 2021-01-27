@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Coffee from '../components/Coffee'
 import Search from '../components/Search'
+import Title from '../components/Title'
 import { filterCoffees, retrieveCoffees } from '../utils/coffees'
 
 export default () => {
@@ -27,8 +28,7 @@ export default () => {
 
   return (
     <div className="page">
-      <div className="title">A searchable list of all your favorite coffees</div>
-      <div className="subtitle">choose the coffee</div>
+      <Title />
       <Search term={searchTerm} setter={setSearchTerm} />
       {
 
