@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Page from '../components/Page'
 import Coffee from '../components/Coffee'
 import Search from '../components/Search'
 import Title from '../components/Title'
@@ -27,7 +28,7 @@ export default () => {
   }, [searchTerm])
 
   return (
-    <div className="page">
+    <Page>
       <Title />
       <Search term={searchTerm} setter={setSearchTerm} />
       {
@@ -42,7 +43,7 @@ export default () => {
         ))
       }
 
-    </div>
+    </Page>
 
   )
 }
