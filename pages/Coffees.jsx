@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Coffee from './Coffee'
-import Search from './Search'
+import Coffee from '../components/Coffee'
+import Search from '../components/Search'
 import { filterCoffees, retrieveCoffees } from '../utils/coffees'
 
 export default () => {
