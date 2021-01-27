@@ -4,9 +4,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import CoffeesPage from './pages/Coffees'
 import ErrorPage from './pages/Error'
+import DescriptionPage from './pages/Description'
 
 render(<BrowserRouter>
   <Switch>
+    <Route path="/description" component={DescriptionPage} />
     <Route exact path="/" component={CoffeesPage} />
     <Route path="*" component={ErrorPage} />
   </Switch>
