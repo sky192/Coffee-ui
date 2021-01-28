@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import GoBack from '../components/GoBack'
 import Descript from '../components/Descript'
 import NotFound from '../components/NotFound'
 import Page from '../components/Page'
@@ -26,6 +27,8 @@ export default ({ location }) => {
   return (
     <Page>
       <Title />
+      <GoBack />
+
       {
         coffeeDescription
           ? (
@@ -34,7 +37,8 @@ export default ({ location }) => {
               {descriptionList.map(descript => (
                 <Descript
                   key={descript.id}
-                  id={descript.description}
+                  id={descript.id}
+                  description={descript.description}
                 />
 
               ))}
