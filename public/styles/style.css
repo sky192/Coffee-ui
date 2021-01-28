@@ -1,8 +1,8 @@
 body {
-  background-color: #523d1e;
+  background-color: #6e5733;
 }
 .page {
-  background-color: #c7ab81;
+  background-color: #a7824c;
     margin: 60px auto 0;
     text-align: center;
     width: 60%;
@@ -21,7 +21,7 @@ body {
     font-weight: 400;
   }
   input {
-    background-color: #968267;
+    background-color: #966628;
     border-radius: 8px;
     font-size: 20px;
     margin: 30px auto;

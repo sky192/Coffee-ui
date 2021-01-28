@@ -16,6 +16,6 @@ const Link = styled(NavLink) `
 
 export default ({ id, title, description }) => (
   <Coffee key={id}>
-    <Link to={`/description/${id}`}>{`${title}:  (${description})`}</Link>
+    <Link to={`/description/${description}`}>{`${title}:  (${description})`}</Link>
   </Coffee>
 )
