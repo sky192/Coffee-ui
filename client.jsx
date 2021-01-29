@@ -8,7 +8,7 @@ import DescriptionPage from './pages/Description'
 
 render(<BrowserRouter>
   <Switch>
-    <Route path="/description" component={DescriptionPage} />
+    <Route path="/coffee" component={DescriptionPage} />
     <Route exact path="/" component={CoffeesPage} />
     <Route path="*" component={ErrorPage} />
   </Switch>

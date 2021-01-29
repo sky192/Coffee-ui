@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import GoBack from '../components/GoBack'
-import Descript from '../components/Descript'
 import NotFound from '../components/NotFound'
 import Page from '../components/Page'
 import CoffeeDetails from '../components/CoffeeDetails'
-import Title from '../components/Title'
-import { retrieveDescription } from '../utils/description'
+import { retrieveCoffees } from '../utils/description'
 
 export default ({ location }) => {
-  const [coffeeDescription, setCoffeeDescription] = useState('')
-  const [coffee, setCoffee] = useState({})
-  const [descriptionList, setDescriptionList] = useState({})
+  const [coffeeId, setCoffeeId] = useState('')
+  const [coffeeTitle, setCoffeeTitle] = useState({})
+  const [coffeeDescription, setCoffeeDescription] = useState([])
 
   useEffect(() => {
     async function pullData() {
-      const { details, description } = await retrieveDescription(location)
+      const { id, title, description } = await retrieveCoffees(location)
 
-      setCoffeeDescription(details.description)
-      setCoffee(details)
-      setDescriptionList(description)
+      setCoffeeId(id)
+      setCoffeeTitle(title)
+      setCoffeeDescription(description)
     }
 
     pullData()
@@ -26,25 +24,16 @@ export default ({ location }) => {
 
   return (
     <Page>
-      <Title />
       <GoBack />
 
       {
-        coffeeDescription
+        coffeeId
           ? (
             <>
-              <CoffeeDetails Title={coffee.title} description={coffee.description} />
-              {descriptionList.map(descript => (
-                <Descript
-                  key={descript.id}
-                  id={descript.id}
-                  description={descript.description}
-                />
-
-              ))}
+              <CoffeeDetails title={coffeeTitle} description={coffeeDescription} />
             </>
           )
-          : (<NotFound message="Sorry, I do not know that team" />)
+          : (<NotFound message="Sorry, I do not know that coffee" />)
 
       }
     </Page>

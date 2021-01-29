@@ -9,5 +9,8 @@ const Details = styled.div `
 `
 
 export default ({ title, description }) => (
-  <Details>{`${title} (${description})`}</Details>
+  <>
+    <h1>{`${title}`}</h1>
+    <Details>{`${description}`}</Details>
+  </>
 )

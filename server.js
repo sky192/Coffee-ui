@@ -4,7 +4,9 @@ import express from 'express'
 
 import path from 'path'
 
-import { getAllCoffees, getCoffeeByTitle, saveNewCoffee, deleteCoffee } from './controllers/coffees'
+import {
+  getAllCoffees, getCoffeeByTitle, saveNewCoffee, deleteCoffee,
+} from './controllers/coffees'
 
 const app = express()
 

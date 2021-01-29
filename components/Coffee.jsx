@@ -10,12 +10,13 @@ text-align: center;
 
 const Link = styled(NavLink) `
   text-decoration: none;
-  color: #9b5400;
-  font-family: Arial, Helvetica, sans-serif;
+  color: #220a00;
+  font-size: 20px;
+  font-weight: 500;
 `
 
-export default ({ id, title, description }) => (
+export default ({ id, title }) => (
   <Coffee key={id}>
-    <Link to={`/description/${description}`}>{`${title}:  (${description})`}</Link>
+    <Link to={`/coffee/${title}`}>{`${title}`}</Link>
   </Coffee>
 )

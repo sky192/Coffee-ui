@@ -11,11 +11,12 @@ const Title = styled.div `
 const Subtitle = styled.div `
   font-size: 20px;
   font-weight: 400;
+  color: #451400;
 `
 
 export default () => (
   <>
-    <Title>A searchable list of all your favorite coffees</Title>
-    <Subtitle>choose the coffee</Subtitle>
+    <Title>List of all your favorite coffees</Title>
+    <Subtitle>Choose the coffee</Subtitle>
   </>
 )

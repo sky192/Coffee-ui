@@ -1,19 +1,19 @@
-import fetchDescriptionForCoffee from '../actions/coffees'
+import fetchDescriptionForCoffee from '../actions/description'
 
-export const getCoffeeDescriptionFromUrl = location => (location && location.pathname
-  ? location.pathname.split('/description').pop()
-  : ''
+export const getCoffeeIdFromUrl = location => (location && location.pathname
+  ? location.pathname.split('/').pop()
+  : 0
 
 )
 
-export const retrieveDescription = async (location) => {
-  const coffeeDescription = getCoffeeDescriptionFromUrl(location)
+export const retrieveCoffees = async (location) => {
+  const coffeeId = getCoffeeIdFromUrl(location)
 
-  if (!coffeeDescription) return { details: {}, description: {} }
+  if (!coffeeId) return { id: 0, description: '', title: '' }
 
-  const { id, title, description } = await fetchDescriptionForCoffee(coffeeDescription)
+  const { id, title, description } = await fetchDescriptionForCoffee(coffeeId)
 
-  if (!id || !title || !description) return { details: {}, description: {} }
+  if (!id || !title || !description) return { id: 0, description: '', title: '' }
 
-  return { description, details: { id, title, description } }
+  return { id, description, title }
 }
